@@ -1,7 +1,6 @@
 package com.henriquecoqueiro.twclone.model.entities;
 
 import jakarta.persistence.*;
-import jdk.jfr.Timestamp;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
@@ -14,6 +13,8 @@ public class Tweet {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "tweet_id")
     private Long tweetId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
     private String content;
     @CreationTimestamp
